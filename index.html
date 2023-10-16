@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Page</title>
+</head>
+<body>
+    <div style="text-align: center;">
+        <h1>Product Name</h1>
+        <img src="image.png" alt="Product Image" width="300" height="200">
+        <p id="price">Price: $19.99</p>
+        <button type="button" id="buyButton">Buy Now</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.getElementById("buyButton").addEventListener("click", function() {
+            // Update the message
+            document.getElementById("message").textContent = "Sold!";
+            
+            // Extract and update the price by adding 5
+            const priceElement = document.getElementById("price");
+            const priceText = priceElement.textContent;
+            const currentPrice = parseFloat(priceText.replace("Price: $", ""));
+            const newPrice = (currentPrice + 5).toFixed(2);
+            priceElement.textContent = "Price: $" + newPrice;
+        });
+    </script>
+</body>
+</html>
